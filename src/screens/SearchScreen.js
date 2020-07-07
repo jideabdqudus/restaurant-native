@@ -1,9 +1,22 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import SearchBar from "../components/SearchBar";
+import yelp from '../api/yelp'
 
 const SearchScreen = () => {
   const [term, setTerm] = useState("");
+  const [results, setResults] = useState([])
+
+  const searchApi = async ()=>{
+    const response = await yelp.get("/search",{
+      params:{
+        limit: 50,
+        term,
+        location:"san jose"
+      }
+    })
+    setResults(response.data.businesses)
+  }
 
   const onTermChange = (newTerm) => {
     setTerm(newTerm);
@@ -18,10 +31,10 @@ const SearchScreen = () => {
     <View>
       <SearchBar
         term={term}
-        onTermChange={onTermChange}
-        onTermSubmit={onTermSubmit}
+        onTermChange={setTerm}
+        onTermSubmit={searchApi}
       />
-      <Text>{term}</Text>
+      <Text>{results.length}</Text>
     </View>
   );
 };
