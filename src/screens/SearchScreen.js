@@ -16,6 +16,7 @@ const SearchScreen = () => {
       }
     })
     setResults(response.data.businesses)
+    console.log(results.length)
   }
 
   const onTermChange = (newTerm) => {
