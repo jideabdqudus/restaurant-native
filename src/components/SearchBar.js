@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 const SearchBar = () => {
@@ -18,17 +18,17 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 5,
     marginHorizontal: 15,
-    flexDirection:"row"
+    flexDirection: "row",
   },
-  inputStyle:{
-      fontSize:18,
-      flex: 1,
+  inputStyle: {
+    fontSize: 18,
+    flex: 1,
   },
-  iconSize:{
-      fontSize: 35,
-      alignSelf: 'center',
-      marginHorizontal:15
-  }
+  iconSize: {
+    fontSize: 35,
+    alignSelf: "center",
+    marginHorizontal: 15,
+  },
 });
 
 export default SearchBar;
