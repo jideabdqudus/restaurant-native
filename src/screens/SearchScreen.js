@@ -29,12 +29,21 @@ const SearchScreen = () => {
     searchApi("Pasta");
   }, []);
 
+
+  const filterResult = (price) => {
+    return results.filter((result) => {
+      return result.price === price;
+    });
+  };
+
   return (
     <View>
       <SearchBar term={term} onTermChange={setTerm} searchApi={searchApi} />
       <Text>{results.length}</Text>
       <Text>{error}</Text>
-      <ResultsLists />
+      <ResultsLists results ={filterResult("$")} title="Cost Effective"/>
+      <ResultsLists results ={filterResult("$$")} title="Bit Pricier"/>
+      <ResultsLists results ={filterResult("$$$")} title="Big Spender"/>
     </View>
   );
 };

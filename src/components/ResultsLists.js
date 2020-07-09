@@ -1,27 +1,38 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 
-const ResultsLists = () => {
+const ResultsLists = ({title, results}) => {
+  const variables = [
+    {
+      title: "Cost Effective",
+      filter: "$",
+    },
+    {
+      title: "Bit pricier",
+      filter: "$$",
+    },
+    {
+      title: "Big Spender",
+      filter: "$$$",
+    },
+  ];
 
-    const variables =[
-        {
-            title: "Cost Effective"
-        },
-        {
-            title: "Bit pricier"
-        },
-        {
-            title: "Big Spender"
-        },
-    ]
 
   return (
     <View>
-      <Text>Results Sheet</Text>
+      <Text style={styles.title}>{title}</Text>
+      <Text>Results: {results.length}</Text>
+      
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    title:{
+        fontSize: 18,
+        fontWeight: 'bold'
+    }
+});
 
 export default ResultsLists;
