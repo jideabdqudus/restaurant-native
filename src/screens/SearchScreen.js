@@ -17,8 +17,7 @@ const SearchScreen = () => {
       },
     });
     setResults(response.data.businesses);
-    console.log(results.length);
-    setTerm("")
+    console.log("pasta");
   };
 
   const onTermChange = (newTerm) => {
@@ -33,7 +32,9 @@ const SearchScreen = () => {
   return (
     <View>
       <SearchBar term={term} onTermChange={setTerm} searchApi={searchApi} />
-      <Text>The amount of results for {term} are: {results.length}</Text>
+      <Text>
+        The amount of results for {term} are: {results.length}
+      </Text>
     </View>
   );
 };
