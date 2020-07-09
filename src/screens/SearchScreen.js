@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import SearchBar from "../components/SearchBar";
 import yelp from "../api/yelp";
-import { set } from "react-native-reanimated";
 
 const SearchScreen = () => {
   const [term, setTerm] = useState("");
@@ -17,7 +16,7 @@ const SearchScreen = () => {
       },
     });
     setResults(response.data.businesses);
-    console.log("pasta");
+    console.log(results.length);
   };
 
   const onTermChange = (newTerm) => {
@@ -25,7 +24,7 @@ const SearchScreen = () => {
   };
 
   const onTermSubmit = () => {
-    console.log(`Submitted Nigga`);
+    console.log(`Submitted`);
     setTerm("");
   };
 
@@ -33,7 +32,7 @@ const SearchScreen = () => {
     <View>
       <SearchBar term={term} onTermChange={setTerm} searchApi={searchApi} />
       <Text>
-        The amount of results for {term} are: {results.length}
+        {results.length}
       </Text>
     </View>
   );
