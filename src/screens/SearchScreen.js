@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import SearchBar from "../components/SearchBar";
 import yelp from "../api/yelp";
+import ResultsLists from "../components/ResultsLists";
 
 const SearchScreen = () => {
   const [term, setTerm] = useState("");
@@ -9,7 +10,7 @@ const SearchScreen = () => {
   const [error, setError] = useState("");
 
   const searchApi = async () => {
-    console.log("Hi there");
+    console.log("Hi There");
     try {
       const response = await yelp.get("/search", {
         params: {
@@ -33,6 +34,7 @@ const SearchScreen = () => {
       <SearchBar term={term} onTermChange={setTerm} searchApi={searchApi} />
       <Text>{results.length}</Text>
       <Text>{error}</Text>
+      <ResultsLists />
     </View>
   );
 };
