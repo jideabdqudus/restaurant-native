@@ -21,7 +21,7 @@ const SearchBar = ({ term, onTermChange, searchApi }) => {
 
 const styles = StyleSheet.create({
   searchView: {
-    backgroundColor: "#F0EEEE",
+    backgroundColor: "#Fff",
     height: 50,
     marginVertical: 10,
     borderRadius: 5,

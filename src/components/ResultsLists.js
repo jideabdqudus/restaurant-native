@@ -22,7 +22,6 @@ const ResultsLists = ({ title, results }) => {
   return (
     <View>
       <Text style={styles.title}>{title}</Text>
-      <Text>Results: {results.length}</Text>
       <FlatList
         horizontal
         data={results}
@@ -41,6 +40,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
+    marginLeft: 15
   },
 });
 
