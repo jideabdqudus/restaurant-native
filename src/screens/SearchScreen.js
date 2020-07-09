@@ -10,7 +10,7 @@ const SearchScreen = () => {
   const [error, setError] = useState("");
 
   const searchApi = async () => {
-    console.log("Hi There");
+    console.log(results);
     try {
       const response = await yelp.get("/search", {
         params: {
