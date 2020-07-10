@@ -1,9 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import ResultDetails from "./ResultDetails";
 
-
-const ResultsLists = ({ title, results }) => {
+const ResultsLists = ({ title, results, navigation }) => {
   const variables = [
     {
       title: "Cost Effective",
@@ -29,7 +34,9 @@ const ResultsLists = ({ title, results }) => {
         keyExtractor={(result) => result.id}
         renderItem={({ item }) => {
           return (
-            <ResultDetails item ={item}/>
+            <TouchableOpacity onPress={() => navigation.navigate("Result")}>
+              <ResultDetails item={item} />
+            </TouchableOpacity>
           );
         }}
       />
@@ -42,11 +49,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginLeft: 15,
-    marginBottom: 5
+    marginBottom: 5,
   },
-  container:{
-      marginBottom: 10
-  }
+  container: {
+    marginBottom: 10,
+  },
 });
 
 export default ResultsLists;

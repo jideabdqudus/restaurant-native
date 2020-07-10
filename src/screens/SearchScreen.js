@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar";
 import yelp from "../api/yelp";
 import ResultsLists from "../components/ResultsLists";
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
@@ -40,9 +40,21 @@ const SearchScreen = () => {
       <SearchBar term={term} onTermChange={setTerm} searchApi={searchApi} />
       {error ? <Text>{error}</Text> : null}
       <ScrollView>
-        <ResultsLists results={filterResult("$")} title="Cost Effective" />
-        <ResultsLists results={filterResult("$$")} title="Bit Pricier" />
-        <ResultsLists results={filterResult("$$$")} title="Big Spender" />
+        <ResultsLists
+          results={filterResult("$")}
+          title="Cost Effective"
+          navigation={navigation}
+        />
+        <ResultsLists
+          results={filterResult("$$")}
+          title="Bit Pricier"
+          navigation={navigation}
+        />
+        <ResultsLists
+          results={filterResult("$$$")}
+          title="Big Spender"
+          navigation={navigation}
+        />
       </ScrollView>
     </>
   );
