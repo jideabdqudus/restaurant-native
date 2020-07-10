@@ -16,11 +16,14 @@ const ResultsShow = ({ navigation }) => {
   useEffect(() => {
     getResult(id);
   }, []);
+  if (!result) {
+    return null;
+  }
   return (
     <View>
       <FlatList
         data={result.photos}
-        keyExtractor={photo}
+        keyExtractor={(photo) => photo}
         renderItem={({ item }) => {
           return <Image style={styles.image} source={{ uri: item }} />;
         }}
