@@ -4,13 +4,12 @@ import SearchBar from "../components/SearchBar";
 import yelp from "../api/yelp";
 import ResultsLists from "../components/ResultsLists";
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
   const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
 
   const searchApi = async () => {
-    console.log(results);
     try {
       const response = await yelp.get("/search", {
         params: {
@@ -43,17 +42,14 @@ const SearchScreen = ({ navigation }) => {
         <ResultsLists
           results={filterResult("$")}
           title="Cost Effective"
-          navigation={navigation}
         />
         <ResultsLists
           results={filterResult("$$")}
           title="Bit Pricier"
-          navigation={navigation}
         />
         <ResultsLists
           results={filterResult("$$$")}
           title="Big Spender"
-          navigation={navigation}
         />
       </ScrollView>
     </>
