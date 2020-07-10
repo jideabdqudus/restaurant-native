@@ -25,6 +25,10 @@ const ResultsLists = ({ title, results, navigation }) => {
     },
   ];
 
+  if (!results.length) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -35,7 +39,9 @@ const ResultsLists = ({ title, results, navigation }) => {
         keyExtractor={(result) => result.id}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity onPress={() => navigation.navigate("Result", {id: item.id})}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Result", { id: item.id })}
+            >
               <ResultDetails item={item} />
             </TouchableOpacity>
           );
