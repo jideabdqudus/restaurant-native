@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 222,
     height: 85,
-    left: 90
+    left: 80
   },
 });
 
